@@ -10,11 +10,13 @@ module.exports = {
     ecmaVersion: 2021,
   },
   plugins: [],
-  rules: {},
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/typescript/recommended',
     'prettier',
   ],
+  rules: {
+    'vue/multi-word-component-names': 0,
+  },
 };
