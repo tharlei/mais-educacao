@@ -1,0 +1,36 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Styling, testing and building your project before committing'
+
+npm run check-format ||
+(
+  echo 'Prettier check failed. Run npm run format, add changes and try commit again.';
+  false;
+)
+
+npm run check-lint ||
+(
+  echo 'ESLint check failed. Make the required changes listed above, add changes and try to commit again.'
+  false;
+)
+
+npm run check-types ||
+(
+  echo 'Types errors. Make the changes required above.'
+  false;
+)
+
+npm run test -- --watch=false --coverage=true ||
+(
+  echo 'Tests failed, view the errors above to see why.'
+  false;
+)
+
+npm run build ||
+(
+  echo 'Build failed: view the errors above to see why.'
+  false;
+)
+
+echo 'Committing this now. 🚀'

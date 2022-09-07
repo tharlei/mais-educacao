@@ -1,20 +1,40 @@
 {
   "name": "challenge-full-stack-web",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check '*.{ts,js,scss,vue}'",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js --ext tsx --ext vue",
+    "format": "prettier --write .",
+    "husky:tests": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "husky:init": "husky install",
+    "test": ""
   },
   "dependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-vue": "^3.1.0",
-    "typescript": "^4.6.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.1",
+    "eslint": "^8.23.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^9.4.0",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.2",
     "vite": "^3.1.0",
-    "vue-tsc": "^0.40.4"
+    "vue-tsc": "^0.40.4",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1"
   }
 }
