@@ -7,10 +7,10 @@ const menu = [
   {
     url: '/',
     icon: 'fas fa-home',
-    title: 'Home',
+    title: 'Início',
   },
   {
-    url: '/',
+    url: '/alunos',
     icon: 'fas fa-users',
     title: 'Alunos',
   },
@@ -67,4 +67,4 @@ function handleRedirect(route: string) {
   </div>
 </template>
 
-<style type="sass" scoped></style>
+<style scoped></style>
