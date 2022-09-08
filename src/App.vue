@@ -7,10 +7,20 @@ import Menu from './components/Menu/index.vue';
     <v-layout>
       <Menu />
       <v-main>
-        <router-view></router-view>
+        <v-container>
+          <router-view></router-view>
+        </v-container>
       </v-main>
     </v-layout>
   </v-card>
 </template>
 
-<style scoped></style>
+<style>
+main {
+  background: #fafafa;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+</style>
