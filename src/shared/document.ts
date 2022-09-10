@@ -3,7 +3,14 @@ export class Document {
     cpf = cpf.replace(/\D/g, '');
     let sum = 0;
     let rest, interactive;
-    if (cpf == '00000000000') return false;
+
+    if (![10, 11].includes(cpf.length)) {
+      return false;
+    }
+
+    if (cpf == '00000000000') {
+      return false;
+    }
 
     for (interactive = 1; interactive <= 9; interactive++)
       sum +=
@@ -12,7 +19,9 @@ export class Document {
     rest = (sum * 10) % 11;
 
     if ([10, 11].includes(rest)) rest = 0;
-    if (rest != parseInt(cpf.substring(9, 10))) return false;
+    if (rest != parseInt(cpf.substring(9, 10))) {
+      return false;
+    }
 
     sum = 0;
     for (interactive = 1; interactive <= 10; interactive++)
@@ -22,7 +31,16 @@ export class Document {
     rest = (sum * 10) % 11;
 
     if ([10, 11].includes(rest)) rest = 0;
-    if (rest != parseInt(cpf.substring(10, 11))) return false;
+    if (rest != parseInt(cpf.substring(10, 11))) {
+      return false;
+    }
+
     return true;
+  }
+
+  static format(value: string): string {
+    const cpf = value.replace(/\D/g, '');
+
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4');
   }
 }
