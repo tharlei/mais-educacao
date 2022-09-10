@@ -9,7 +9,7 @@
     "check-format": "prettier --check '*.{ts,js,scss,vue}'",
     "check-lint": "eslint . --ext ts --ext tsx --ext js --ext tsx --ext vue",
     "check-types": "tsc --pretty --noEmit",
-    "dev": "vite",
+    "dev": "vite & npm --prefix ./server/ run dev",
     "format": "prettier --write .",
     "husky:init": "husky install",
     "husky:tests": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
