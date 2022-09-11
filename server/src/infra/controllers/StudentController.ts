@@ -51,8 +51,15 @@ export class StudentController {
   store = async (request: Request, response: Response): Promise<Response> => {
     const { name, email, ra, document } = request.body;
 
+    const input = {
+      name,
+      email,
+      ra,
+      document,
+    };
+
     try {
-      await this.existsDataOfStudentService.handle({ email, ra, document });
+      await this.existsDataOfStudentService.handle(input);
     } catch ({ message }) {
       const field = message;
       return response.status(409).json({
@@ -62,12 +69,7 @@ export class StudentController {
     }
 
     try {
-      await this.createStudentService.handle({
-        name,
-        email,
-        ra,
-        document,
-      });
+      await this.createStudentService.handle(input);
       return response.status(201).json();
     } catch (error) {
       console.error(error);
