@@ -20,13 +20,13 @@ export class ExistsDataOfStudentService {
   private async emailIsUsed({ email, id }: StudentInput) {
     const isUsed = await this.studentRepository.model().findOne({
       where: {
-        email: email,
+        email,
         ...(id && { id }),
       },
     });
 
     if (isUsed) {
-      throw new Error('email');
+      throw new Error('EMAIL');
     }
   }
 
@@ -43,7 +43,7 @@ export class ExistsDataOfStudentService {
     });
 
     if (isUsed) {
-      throw new Error('ra');
+      throw new Error('RA');
     }
   }
 
@@ -60,7 +60,7 @@ export class ExistsDataOfStudentService {
     });
 
     if (isUsed) {
-      throw new Error('document');
+      throw new Error('DOCUMENT');
     }
   }
 }

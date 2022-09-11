@@ -10,12 +10,12 @@ interface CreateStudentInput {
 }
 
 enum TranslateField {
-  ra = 'Registro Acadêmico',
-  email = 'E-mail',
-  document = 'CPF',
+  RA = 'Registro Acadêmico',
+  EMAIL = 'E-mail',
+  DOCUMENT = 'CPF',
 }
 
-type Field = 'ra' | 'email' | 'document';
+type Field = 'RA' | 'EMAIL' | 'DOCUMENT';
 
 export class CreateStudentService {
   private readonly api: AxiosInstance;
