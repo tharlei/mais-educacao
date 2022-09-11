@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { CreateStudentService } from '../../../services/createStudentService';
 import { Alert } from '../../../shared/alert';
 import { rules } from '../../../shared/rules';
 
@@ -9,12 +10,17 @@ const email = ref('');
 const ra = ref('');
 const document = ref('');
 
-function handleSubmit() {
+async function handleSubmit() {
   if (!valid.value) {
     return Alert.toastError('Verificar campos...');
   }
 
-  console.log('send');
+  await new CreateStudentService().handle({
+    name: name.value,
+    email: email.value,
+    document: document.value,
+    ra: ra.value,
+  });
 }
 </script>
 
@@ -52,6 +58,7 @@ function handleSubmit() {
         <v-col cols="12" md="6">
           <v-text-field
             v-model="document"
+            v-maska="'###.###.###-##'"
             :rules="rules.document"
             label="CPF"
             required
