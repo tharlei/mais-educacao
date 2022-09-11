@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { CreateStudentService } from '../../../services/createStudentService';
 import { Alert } from '../../../shared/alert';
 import { rules } from '../../../shared/rules';
+
+const router = useRouter();
 
 const valid = ref(false);
 const name = ref('');
@@ -15,12 +18,16 @@ async function handleSubmit() {
     return Alert.toastError('Verificar campos...');
   }
 
-  await new CreateStudentService().handle({
-    name: name.value,
-    email: email.value,
-    document: document.value,
-    ra: ra.value,
-  });
+  try {
+    await new CreateStudentService().handle({
+      name: name.value,
+      email: email.value,
+      document: document.value,
+      ra: ra.value,
+    });
+
+    router.replace('/alunos');
+  } catch (e) {}
 }
 </script>
 

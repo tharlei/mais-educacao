@@ -32,10 +32,11 @@ export class CreateStudentService {
       if (error.response?.status == 409) {
         const { field } = error.response?.data as { field: Field };
         Alert.toastError(`${TranslateField[field]} já existe cadastrado`);
-        return;
+        throw error;
       }
 
       Alert.toastError(`Não foi possível cadastrar aluno :(`);
+      throw error;
     }
   }
 }
