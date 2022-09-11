@@ -3,10 +3,10 @@ import { Document } from '../../../modules/shared/document';
 import { ValidationMiddleware } from '../../middlewares/ValidationMiddleware';
 
 const validations = [
-  body('name').isString(),
-  body('email').isString(),
-  body('ra').isString(),
-  body('document').isString(),
+  body('name').isString().trim(),
+  body('email').isString().trim(),
+  body('ra').isString().trim(),
+  body('document').isString().trim(),
   check('name', 'First Name and last name is required').custom(
     (value: string) => value.split(' ').length > 1,
   ),
