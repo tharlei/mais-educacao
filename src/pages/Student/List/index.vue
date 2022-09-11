@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import EasyDataTable from 'vue3-easy-data-table';
 import type { Header, Item } from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 import { Alert } from '../../../shared/alert';
+import { ListStudentService } from '../../../services/listStudentService';
 
 const searchValue = ref('');
-const loading = ref(false);
+const students = ref<Item[]>([]);
+const loading = ref(true);
 
 const headers: Header[] = [
   { text: 'Registro Acadêmico', value: 'ra', sortable: true },
@@ -14,20 +16,15 @@ const headers: Header[] = [
   { text: 'CPF', value: 'document', sortable: true },
   { text: 'Ações', value: 'actions', sortable: true },
 ];
-const students: Item[] = [
-  {
-    id: '1',
-    document: '465.133.828-31',
-    name: 'Tharlei João Teixeira',
-    ra: 'C8808A-6',
-  },
-  {
-    id: '2',
-    document: '095.470.508-42',
-    name: 'Sirlei Teixeira Aleixo',
-    ra: 'B2763-S',
-  },
-];
+
+onMounted(() => {
+  getStudents();
+});
+
+async function getStudents() {
+  students.value = await new ListStudentService().handle();
+  loading.value = false;
+}
 
 async function handleDelete() {
   const alertResult = await Alert.confirmMessage('Deseja realmente excluir?');
