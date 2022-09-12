@@ -65,6 +65,7 @@ async function handleDelete(id: string) {
     :headers="headers"
     :items="students"
     :loading="loading"
+    :search-value="searchValue"
     table-class-name="customize-table"
   >
     <template #item-actions="item">
