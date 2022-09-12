@@ -43,8 +43,10 @@ export class ExistsDataOfStudentService {
     if (!document) {
       return;
     }
-
-    const isUsed = await this.find({ document }, id);
+    const isUsed = await this.find(
+      { document: document.replace(/\D/g, '') },
+      id,
+    );
 
     if (isUsed) {
       throw new Error('DOCUMENT');
