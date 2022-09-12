@@ -95,7 +95,7 @@ async function handleSubmit(): Promise<void> {
 
       <div class="mt-8">
         <router-link to="/alunos">
-          <v-btn color="grey" class="text-white mr-2"> Voltar </v-btn>
+          <v-btn color="grey" class="text-white mr-2"> Cancelar </v-btn>
         </router-link>
         <v-btn
           color="warning"
@@ -108,7 +108,7 @@ async function handleSubmit(): Promise<void> {
             indeterminate
             color="white"
           ></v-progress-circular>
-          <span v-else>Atualizar</span>
+          <span v-else>Salvar</span>
         </v-btn>
       </div>
     </v-form>

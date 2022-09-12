@@ -75,11 +75,9 @@ async function handleSubmit() {
 
       <div class="mt-8">
         <router-link to="/alunos">
-          <v-btn color="grey" class="text-white mr-2"> Voltar </v-btn>
+          <v-btn color="grey" class="text-white mr-2"> Cancelar </v-btn>
         </router-link>
-        <v-btn color="success" class="text-white" type="submit">
-          Cadastrar
-        </v-btn>
+        <v-btn color="success" class="text-white" type="submit"> Salvar </v-btn>
       </div>
     </v-form>
   </v-card>
