@@ -1,24 +1,64 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Alert } from '../../../shared/alert';
 import { rules } from '../../../shared/rules';
+import { GetStudentService } from '../../../services/getStudentService';
+import { UpdateStudentService } from '../../../services/updateStudentService';
+import { useRouter } from 'vue-router';
 
-defineProps({
+const props = defineProps({
   id: { type: String, required: true },
 });
+
+const router = useRouter();
 
 const valid = ref(false);
 const name = ref('');
 const email = ref('');
 const ra = ref('');
 const document = ref('');
+const loading = ref(true);
 
-function handleSubmit() {
+onMounted(async () => {
+  await getStudent();
+});
+
+async function getStudent(): Promise<void> {
+  try {
+    const data = await new GetStudentService().handle(props.id);
+
+    if (!data) {
+      return;
+    }
+
+    name.value = data.name;
+    email.value = data.email;
+    ra.value = data.ra;
+    document.value = data.document;
+    loading.value = false;
+  } catch (error) {
+    router.replace('/alunos');
+  }
+}
+
+async function handleSubmit(): Promise<void> {
   if (!valid.value) {
     return Alert.toastError('Verificar campos...');
   }
 
-  console.log('send');
+  loading.value = true;
+
+  try {
+    await new UpdateStudentService().handle(props.id, {
+      name: name.value,
+      email: email.value,
+    });
+
+    Alert.toastSuccess(`Atualizado com sucesso`);
+  } catch (e) {
+  } finally {
+    loading.value = false;
+  }
 }
 </script>
 
@@ -45,21 +85,11 @@ function handleSubmit() {
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-text-field
-            v-model="ra"
-            :rules="rules.ra"
-            label="RA"
-            required
-          ></v-text-field>
+          <v-text-field v-model="ra" label="RA" disabled></v-text-field>
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-text-field
-            v-model="document"
-            :rules="rules.document"
-            label="CPF"
-            required
-          ></v-text-field>
+          <v-text-field v-model="document" label="CPF" disabled></v-text-field>
         </v-col>
       </v-row>
 
@@ -67,8 +97,18 @@ function handleSubmit() {
         <router-link to="/alunos">
           <v-btn color="grey" class="text-white mr-2"> Voltar </v-btn>
         </router-link>
-        <v-btn color="success" class="text-white" type="submit">
-          Cadastrar
+        <v-btn
+          color="warning"
+          class="text-white"
+          type="submit"
+          :disabled="loading"
+        >
+          <v-progress-circular
+            v-if="loading"
+            indeterminate
+            color="white"
+          ></v-progress-circular>
+          <span v-else>Atualizar</span>
         </v-btn>
       </div>
     </v-form>
