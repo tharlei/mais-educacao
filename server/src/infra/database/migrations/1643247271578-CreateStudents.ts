@@ -8,8 +8,9 @@ export class CreateStudents1643247271578 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'varchar',
             isPrimary: true,
+            generationStrategy: 'uuid',
           },
           {
             name: 'name',
