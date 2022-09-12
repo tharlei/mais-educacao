@@ -1,3 +1,5 @@
+import { Not } from 'typeorm';
+import { StudentModel } from '../../infra/models/StudentModel';
 import { StudentRepository } from '../../infra/repositories/StudentRepository';
 
 export interface StudentInput {
@@ -18,12 +20,7 @@ export class ExistsDataOfStudentService {
   }
 
   private async emailIsUsed({ email, id }: StudentInput) {
-    const isUsed = await this.studentRepository.model().findOne({
-      where: {
-        email,
-        ...(id && { id }),
-      },
-    });
+    const isUsed = await this.find({ email }, id);
 
     if (isUsed) {
       throw new Error('EMAIL');
@@ -35,12 +32,7 @@ export class ExistsDataOfStudentService {
       return;
     }
 
-    const isUsed = await this.studentRepository.model().findOne({
-      where: {
-        ra,
-        ...(id && { id }),
-      },
-    });
+    const isUsed = await this.find({ ra }, id);
 
     if (isUsed) {
       throw new Error('RA');
@@ -52,15 +44,24 @@ export class ExistsDataOfStudentService {
       return;
     }
 
-    const isUsed = await this.studentRepository.model().findOne({
-      where: {
-        document: document.replace(/\D/g, ''),
-        ...(id && { id }),
-      },
-    });
+    const isUsed = await this.find({ document }, id);
 
     if (isUsed) {
       throw new Error('DOCUMENT');
     }
+  }
+
+  private async find(
+    input: { [x: string]: string },
+    id?: string,
+  ): Promise<StudentModel | undefined> {
+    return await this.studentRepository.model().findOne({
+      where: {
+        ...input,
+        ...(id && {
+          id: Not(id),
+        }),
+      },
+    });
   }
 }

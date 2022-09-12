@@ -61,9 +61,9 @@ export class StudentController {
     try {
       await this.existsDataOfStudentService.handle(input);
     } catch ({ message }) {
-      const field = message;
+      const field = message as string;
       return response.status(409).json({
-        message: `Exists student with this ${field}`,
+        message: `Exists student with this ${field.toLowerCase()}`,
         field,
       });
     }
@@ -82,11 +82,11 @@ export class StudentController {
     const { name, email } = request.body;
 
     try {
-      await this.existsDataOfStudentService.handle({ email });
+      await this.existsDataOfStudentService.handle({ email, id });
     } catch ({ message }) {
-      const field = message;
+      const field = message as string;
       return response.status(409).json({
-        message: `Exists student with this ${field}`,
+        message: `Exists student with this ${field.toLowerCase()}`,
         field,
       });
     }
