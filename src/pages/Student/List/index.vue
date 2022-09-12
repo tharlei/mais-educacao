@@ -5,6 +5,7 @@ import type { Header, Item } from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 import { Alert } from '../../../shared/alert';
 import { ListStudentService } from '../../../services/listStudentService';
+import { DeleteStudentService } from '../../../services/deleteStudentService';
 
 const searchValue = ref('');
 const students = ref<Item[]>([]);
@@ -26,14 +27,17 @@ async function getStudents() {
   loading.value = false;
 }
 
-async function handleDelete() {
+async function handleDelete(id: string) {
   const alertResult = await Alert.confirmMessage('Deseja realmente excluir?');
 
   if (!alertResult.isConfirmed) {
     return;
   }
 
-  console.log('delete');
+  loading.value = true;
+  await new DeleteStudentService().handle(id);
+
+  await getStudents();
 }
 </script>
 
@@ -71,7 +75,7 @@ async function handleDelete() {
           </v-btn>
         </router-link>
 
-        <v-btn color="red" class="btn" @click="handleDelete">
+        <v-btn color="red" class="btn" @click="handleDelete(item.id)">
           <v-icon icon="fas fa-trash" color="white" />
         </v-btn>
       </div>
