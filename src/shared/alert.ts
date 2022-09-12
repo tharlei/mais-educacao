@@ -13,6 +13,18 @@ export class Alert {
     });
   }
 
+  static toastSuccess(title: string): void {
+    Swal.fire({
+      title,
+      icon: 'success',
+      toast: true,
+      timer: 3000,
+      timerProgressBar: true,
+      position: 'top-end',
+      showConfirmButton: false,
+    });
+  }
+
   static toastFixed(title: string, icon: SweetAlertIcon): void {
     Swal.fire({
       title,
