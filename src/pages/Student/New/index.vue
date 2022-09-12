@@ -12,11 +12,14 @@ const name = ref('');
 const email = ref('');
 const ra = ref('');
 const document = ref('');
+const loading = ref(false);
 
 async function handleSubmit() {
   if (!valid.value) {
     return Alert.toastError('Verificar campos...');
   }
+
+  loading.value = true;
 
   try {
     await new CreateStudentService().handle({
@@ -27,7 +30,9 @@ async function handleSubmit() {
     });
 
     router.replace('/alunos');
-  } catch (e) {}
+  } catch (e) {
+    loading.value = false;
+  }
 }
 </script>
 
@@ -77,7 +82,14 @@ async function handleSubmit() {
         <router-link to="/alunos">
           <v-btn color="grey" class="text-white mr-2"> Cancelar </v-btn>
         </router-link>
-        <v-btn color="success" class="text-white" type="submit"> Salvar </v-btn>
+        <v-btn
+          color="success"
+          class="text-white"
+          type="submit"
+          :loading="loading"
+        >
+          Salvar
+        </v-btn>
       </div>
     </v-form>
   </v-card>
