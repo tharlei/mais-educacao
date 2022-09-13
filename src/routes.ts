@@ -1,27 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-function component(page: string) {
-  const path = `./pages/${page}/index.vue`;
-  return () => import(/* @vite-ignore */ path);
-}
-
 const routes = [
   {
     path: '/',
-    component: component('Home'),
+    component: () => import('./pages/Home/index.vue'),
   },
   {
     path: '/alunos',
-    component: component('Student/List'),
+    component: () => import('./pages/Student/List/index.vue'),
   },
   {
     path: '/alunos/novo',
-    component: component('Student/New'),
+    component: () => import('./pages/Student/New/index.vue'),
   },
   {
     path: '/alunos/:id/editar',
     props: true,
-    component: component('Student/Edit'),
+    component: () => import('./pages/Student/Edit/index.vue'),
   },
 ];
 
