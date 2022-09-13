@@ -25,7 +25,7 @@
 
 :small_blue_diamond: [Tecnologias utilizadas](#tecnologias-utilizadas)
 
-:small_blue_diamond: [Decisão técnicas](#decisão-técnicas)
+:small_blue_diamond: [Decisões técnicas](#decisões-técnicas)
 
 :small_blue_diamond: [Autor](#autor)
 
@@ -106,8 +106,9 @@ npm run dev
 - [TypeORM](https://typeorm.io/)
 - [Vue3 Easy Data Table](https://github.com/HC200ok/vue3-easy-data-table)
 - [UUID](https://github.com/uuidjs/uuid)
+- [Vitest](https://vitest.dev/)
 
-## Decisão técnicas
+## Decisões técnicas
 
 ### Arquitetura
 

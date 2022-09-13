@@ -101,14 +101,9 @@ async function handleSubmit(): Promise<void> {
           color="warning"
           class="text-white"
           type="submit"
-          :disabled="loading"
+          :loading="loading"
         >
-          <v-progress-circular
-            v-if="loading"
-            indeterminate
-            color="white"
-          ></v-progress-circular>
-          <span v-else>Salvar</span>
+          Salvar
         </v-btn>
       </div>
     </v-form>

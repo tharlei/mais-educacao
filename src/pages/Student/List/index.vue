@@ -43,7 +43,7 @@ async function handleDelete(id: string) {
 
 <template>
   <v-row>
-    <v-col cols="6" class="d-flex">
+    <v-col cols="12" md="6" class="d-flex">
       <v-text-field
         v-model="searchValue"
         label="Pesquisar por:"
@@ -51,37 +51,40 @@ async function handleDelete(id: string) {
         placeholder="Digite item que deseja buscar..."
         :dense="true"
       ></v-text-field>
-      <v-btn color="grey" class="text-white">Buscar</v-btn>
     </v-col>
 
-    <v-col cols="6" class="d-flex justify-center align-start">
+    <v-col cols="12" md="6" class="d-flex justify-end align-center">
       <router-link to="/alunos/novo">
         <v-btn color="primary" class="text-white">Cadastrar aluno</v-btn>
       </router-link>
     </v-col>
   </v-row>
 
-  <EasyDataTable
-    :headers="headers"
-    :items="students"
-    :loading="loading"
-    :search-value="searchValue"
-    table-class-name="customize-table"
-  >
-    <template #item-actions="item">
-      <div class="d-flex align-center justify-around">
-        <router-link :to="`/alunos/${item.id}/editar`">
-          <v-btn color="grey" class="btn mr-2">
-            <v-icon icon="fas fa-edit" color="white" />
-          </v-btn>
-        </router-link>
+  <v-row class="mt-8">
+    <v-col cols="12">
+      <EasyDataTable
+        :headers="headers"
+        :items="students"
+        :loading="loading"
+        :search-value="searchValue"
+        table-class-name="customize-table"
+      >
+        <template #item-actions="item">
+          <div class="d-flex align-center justify-around">
+            <router-link :to="`/alunos/${item.id}/editar`">
+              <v-btn color="grey" class="btn mr-2">
+                <v-icon icon="fas fa-edit" color="white" />
+              </v-btn>
+            </router-link>
 
-        <v-btn color="red" class="btn" @click="handleDelete(item.id)">
-          <v-icon icon="fas fa-trash" color="white" />
-        </v-btn>
-      </div>
-    </template>
-  </EasyDataTable>
+            <v-btn color="red" class="btn" @click="handleDelete(item.id)">
+              <v-icon icon="fas fa-trash" color="white" />
+            </v-btn>
+          </div>
+        </template>
+      </EasyDataTable>
+    </v-col>
+  </v-row>
 </template>
 
 <style scoped>
@@ -89,9 +92,9 @@ async function handleDelete(id: string) {
   --easy-table-header-font-size: 14px;
   --easy-table-header-height: 50px;
   --easy-table-header-item-padding: 10px 15px;
-  --easy-table-body-row-height: 50px;
-  --easy-table-body-row-font-size: 14px;
-  --easy-table-footer-font-size: 14px;
+  --easy-table-body-row-height: 4rem;
+  --easy-table-body-row-font-size: 0.9rem;
+  --easy-table-footer-font-size: 0.8rem;
   --easy-table-footer-padding: 0px 10px;
   --easy-table-footer-height: 50px;
   --easy-table-footer-height: 50px;
