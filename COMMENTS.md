@@ -9,6 +9,14 @@
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 </p>
 
+## Deploy
+
+> Link do WebApp: https://mais-a-educacao-challenge.netlify.app
+
+## Documentação da API
+
+> Documentação no Postman: https://documenter.getpostman.com/view/4827382/2s7YYr95Q4
+
 ## Sumário
 
 :small_blue_diamond: [Descrição](#descrição)
