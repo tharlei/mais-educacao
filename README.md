@@ -1,127 +1,149 @@
-+A Educação - Full Stack Web Developer
-===================
+<p align="center">
+ <img width="128" src="https://maisaedu.com.br/hubfs/site-grupo-a/logo-mais-a-educacao.svg"/>
+</p>
 
-[![N|Solid](https://maisaedu.com.br/hubfs/site-grupo-a/logo-mais-a-educacao.svg)](https://maisaedu.com.br/) 
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-82b547?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vue-3eaf7c?style=for-the-badge&logo=vue.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vuetify-1697f6?style=for-the-badge&logo=vuetify&logoColor=white">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
+</p>
 
-O objetivo deste desafio é avaliar as competências técnicas dos candidatos a desenvolvedor Full Stack Web na Maior Plataforma de Educação do Brasil.
+## Deploy
 
-Será solicitado o desenvolvimento de uma Aplicação que realize a Matrícula do Aluno na Turma de Programação Web da instituição Edtech. Regras e requisitos técnicos estão detalhadas neste documento.
+> Link do WebApp: https://mais-a-educacao-challenge.netlify.app
 
-# Especificações Técnicas
-- **Front-end:**
-  - Framework JS: [Vue.js](https://vuejs.org/)
-  - Framework de UI: [Vuetify](https://vuetifyjs.com/)
-- **API:** NodeJS
-- **Banco de Dados:** Postgress ou MySQL
-- **Idioma de escrita do código:** Inglês
+## Documentação da API
 
-# Requisitos
-## Contextualização
-Considere que uma Instituição de Ensino Superior precisa de uma solução para cadastrar e gerenciar matrículas de alunos em turmas online. Para realizar a matrícula, é necessário que o cadastro do aluno tenha sido realizado.
+> Documentação no Postman: https://documenter.getpostman.com/view/4827382/2s7YYr95Q4
 
-O desafio consiste em criar uma aplicação para o cadastro de alunos conforme os critérios de aceitação.
+## Sumário
 
-## Mockups de interface
-A seguir, são apresentados alguns mockups de interface como um guia para a criação do front-end. Fique à vontade para usar sua criatividade na criação do front-end.
+:small_blue_diamond: [Descrição](#descrição)
 
-* Listagem de Alunos
-![Listagem de Alunos](/mockups/studants_list.png)
+:small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-* Criar/Editar Aluno
-![Listagem de Alunos](/mockups/studants_save.png)
+:small_blue_diamond: [Deploy](#deploy)
 
-## Histórias do Usuário
-- **Sendo** um usuário administrativo da Instituição
-- **Quero** gerenciar cadastros de alunos
-- **Para** que eu possa realizar a matrícula do aluno
+:small_blue_diamond: [Documentação](#documentação)
 
-### Critérios de aceite: 
+:small_blue_diamond: [Requisitos](#requisitos)
 
-#### Cenário: Cadastrar novo aluno
-- **Dado** que estou na tela de Consulta de Alunos
-- **Quando** clico em Cadastrar Aluno
-- **Então** abre a tela de Cadastro do Aluno
-- **E** exibe os campos obrigatórios vazios
-####
-- **Dado** que inseri dados válidos nos campos
-- **Quando** clico em Salvar
-- **Então** cria o novo aluno na base
-- **E** retorna mensagem de sucesso
-####
-- **Dado** que inseri dados válidos nos campos
-- **Quando** clico em Cancelar
-- **Então** retorna para tela Consulta de Alunos
-- **E** não persiste a gravação dos dados no banco 
+:small_blue_diamond: [Execute projeto](#execute-projeto)
 
-#### Cenário: Listar alunos cadastrados 
-- **Dado** que estou no Módulo Acadêmico
-- **Quando** clico no menu Alunos
-- **Então** abre a tela de Consulta de Alunos 
-- **E** exibe opção Cadastrar Aluno ao topo
-- **E** lista dados dos alunos cadastrados
-- **E** exibe opção Editar por aluno
-- **E** exibe opção Excluir por aluno
+:small_blue_diamond: [Tecnologias utilizadas](#tecnologias-utilizadas)
 
-#### Cenário: Editar cadastro de aluno
-- **Dado** que estou na listagem de alunos
-- **Quando** clico em Editar aluno
-- **Então** abre a tela de Cadastro do Aluno 
-- **E** exibe os campos do cadastro preenchidos
-- **E** habilita alteração dos campos editáveis
-####
-- **Dado** que estou na tela de Cadastro do Aluno
-- **Quando** clica em Salvar
-- **Então** grava os dados editáveis na base
-####
-- **Dado** que estou na tela de Cadastro do Aluno
-- **Quando** clica em Cancelar
-- **Então** retorna para a tela de Consulta de Alunos
-- **E** não persiste a gravação dos dados
+:small_blue_diamond: [Decisões técnicas](#decisões-técnicas)
 
-#### Cenário: Excluir cadastro de aluno
-- **Dado** que estou na listagem de alunos
-- **Quando** clico em Excluir aluno
-- **Então** exibe a modal de confirmação de exclusão
-####
-- **Dado** que estou na modal de confirmação de exclusão 
-- **Quando** clico em Confirmar
-- **Então** então exclui o registro do aluno
-####
-- **Dado** que estou na modal de confirmação de exclusão
-- **Quando** clico em Cancelar
-- **Então** então fecha a modal e não persiste a exclusão
+:small_blue_diamond: [Autor](#autor)
 
-## Campos obrigatórios:
-- **Nome** (editável)
-- **Email** (editável)
-- **RA** (não editável) (chave única)
-- **CPF** (não editável)
+:small_blue_diamond: [Licença](#licença)
 
-# Critérios de avaliação
-- Qualidade de escrita do código
-- Organização do projeto
-- Qualidade da API
-- Lógica da solução implementada
-- Qualidade da camada de persistência
-- Utilização do Git (quantidade e descrição dos commits, Git Flow, ...)
-- Validações
-- Tratamento de erros
-- Padrões de projeto e arquitetura
+## Descrição
 
-# Desejável
-- Testes de unidade
-- Documentação da arquitetura de solução
+<p align="justify">
+  MVP of Wet Bat Travel functions to create quotes
+</p>
 
-# Diferenciais
-- Segurança da aplicação (autenticação, autorização, ...)
+## Funcionalidades
 
-# Instruções de entrega
-1. Crie um fork do repositório no seu GitHub
-2. Faça o push do código desenvolvido no seu Github
-3. Inclua um arquivo chamado COMMENTS.md explicando
-    - Decisão da arquitetura utilizada
-    - Lista de bibliotecas de terceiros utilizadas
-    - O que você melhoraria se tivesse mais tempo
-    - Quais requisitos obrigatórios que não foram entregues
-4. Informe ao recrutador quando concluir o desafio junto com o link do repositório
-5. Após revisão do projeto junto com a equipe de desevolvimento deixe seu repositório privado
+:heavy_check_mark: Listar estudantes
+
+:heavy_check_mark: Exibir estudante
+
+:heavy_check_mark: Salvar estudante
+
+:heavy_check_mark: Atualizar estudante
+
+:heavy_check_mark: Excluir estudante
+
+## Requisitos
+
+:warning: [Node:^16](https://nodejs.org/en/download/)
+
+:warning: [PostgreSQL](https://www.postgresql.org/) ou [MySQL](https://www.mysql.com/)
+
+## Execute projeto
+
+No terminal, clone o projeto
+
+```
+git clone https://github.com/tharlei/challenge-full-stack-web.git
+```
+
+Entre na pasta
+
+```
+cd challenge-full-stack-web
+```
+
+Instale dependências npm
+
+```
+npm i && npm i --prefix server/
+```
+
+Copie .env.example para .env e preencha com informações
+
+```
+cp .env.example .env && cp server/.env.example server/.env
+```
+
+Execute as migrations
+
+```
+npm run typeorm --prefix server/ -- migration:run
+```
+
+Execute o projeto no modo desenvolvimento
+
+```
+npm run dev
+```
+
+## Tecnologias utilizadas
+
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Typescript](https://www.typescriptlang.org/)
+- [Vue.js](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Sweet Alert](https://sweetalert2.github.io/)
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Vuetify](https://next.vuetifyjs.com/en/)
+- [TypeORM](https://typeorm.io/)
+- [Vue3 Easy Data Table](https://github.com/HC200ok/vue3-easy-data-table)
+- [UUID](https://github.com/uuidjs/uuid)
+- [Vitest](https://vitest.dev/)
+
+## Decisões técnicas
+
+### Arquitetura
+
+- Em único repositório possui dois projetos. Na raiz fica o front-end e dentro pasta "server" na raiz, o back-end.
+- Front-end: Vue.js 3 com Typescript e Composition API, compilado com Vite e biblioteca gráfica Vuetify
+- Back-end: Node.js com Typescript, Express e TypeORM para gerenciamento do banco.
+
+### Pastas
+
+- Pasta "infra" são classes que tem uma externa dependência em algo.
+- Pasta "repository" tem a responsabilidade por manipular banco de dados.
+- Pasta "queries" tem intenção de retornar dados já filtrados ou não do banco de dados.
+- Pasta "services" visa executar alguma lógica antes de enviar para uma dependência externa.
+- Pasta "shared" são lógicas compartilhadas dentro do projeto.
+
+### Melhorias futuras
+
+- Adicionar autenticação com [bcrypt](https://github.com/kelektiv/node.bcrypt.js) e [JWT](https://github.com/auth0/node-jsonwebtoken)
+- Cacheamento usando o [Redis](https://github.com/redis/node-redis).
+- Ao concluir cadastro, disparar tarefa com [Bull](https://github.com/OptimalBits/bull) para envio de e-mail de bem-vindo.
+
+## Autor
+
+[<img src="https://avatars2.githubusercontent.com/u/32899049?s=460&u=946f73939bb511fa8ae40ed80764cc4dbffe359f&v=4" width=115><br><sub>Tharlei Aleixo</sub>](https://github.com/Tharlei)
+
+## Licença
+
+The [MIT License]() (MIT)
+
+Copyright :copyright: 2022 - challenge-full-stack-web
