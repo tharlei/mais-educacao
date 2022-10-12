@@ -9,17 +9,7 @@
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 </p>
 
-## Deploy
-
-> Link do WebApp: https://mais-a-educacao-challenge.netlify.app
-
-## Documentação da API
-
-> Documentação no Postman: https://documenter.getpostman.com/view/4827382/2s7YYr95Q4
-
 ## Sumário
-
-:small_blue_diamond: [Descrição](#descrição)
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
@@ -39,12 +29,6 @@
 
 :small_blue_diamond: [Licença](#licença)
 
-## Descrição
-
-<p align="justify">
-  MVP of Wet Bat Travel functions to create quotes
-</p>
-
 ## Funcionalidades
 
 :heavy_check_mark: Listar estudantes
@@ -56,6 +40,14 @@
 :heavy_check_mark: Atualizar estudante
 
 :heavy_check_mark: Excluir estudante
+
+## Deploy
+
+> Link do WebApp: https://mais-a-educacao-challenge.netlify.app
+
+## Documentação
+
+> Documentação no Postman: https://documenter.getpostman.com/view/4827382/2s7YYr95Q4
 
 ## Requisitos
 
