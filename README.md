@@ -60,13 +60,13 @@
 No terminal, clone o projeto
 
 ```
-git clone https://github.com/tharlei/challenge-full-stack-web.git
+git clone https://github.com/tharlei/mais-educacao.git
 ```
 
 Entre na pasta
 
 ```
-cd challenge-full-stack-web
+cd mais-educacao
 ```
 
 Instale dependências npm
